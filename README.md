@@ -1,1 +1,1 @@
-# smy-info-ui
+# SMY-INFO-UI
