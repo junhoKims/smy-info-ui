@@ -1,12 +1,31 @@
-import { defineConfig } from 'vite';
+import path from 'node:path';
 import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts({ include: ['src'] })],
   build: {
     outDir: 'build',
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: '@smy/ui',
+      formats: ['es', 'cjs'],
+      fileName: '[name]',
+    },
+    rollupOptions: {
+      input: path.resolve(__dirname, 'src/index.ts'),
+      output: {
+        sourcemap: true,
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        globals: {
+          react: 'React',
+        },
+      },
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
+    },
   },
   resolve: {
     alias: [
