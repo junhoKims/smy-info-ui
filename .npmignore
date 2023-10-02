@@ -13,5 +13,5 @@ CONTRIBUTING.md
 COOKBOOK.md
 ECOSYSTEM.md
 karma.conf.js
-vite.*.js
+vite.*.ts
 sauce_connect.log

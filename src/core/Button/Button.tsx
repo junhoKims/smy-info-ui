@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  size: 'large' | 'medium' | 'small';
+  size?: 'large' | 'medium' | 'small';
 }
 
 /**
@@ -11,7 +11,7 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
  * <Button>버튼</Button>
  */
 const Button = (props: ButtonProps) => {
-  return <button {...props} />;
+  return <button className="text-emerald-600" {...props} />;
 };
 
 export default Button;

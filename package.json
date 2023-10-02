@@ -8,7 +8,9 @@
     "url": "https://github.com/junhoKims/smy-info-ui.git"
   },
   "type": "module",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "main": "./build/index-cjs.js",
   "module": "./build/index-es.js",
   "types": "./build/index.d.ts",
@@ -23,6 +25,11 @@
       "types": "./build/core/index.d.ts",
       "module": "./build/core/index-es.js",
       "default": "./build/core/index-cjs.js"
+    },
+    "./core/*": {
+      "types": "./build/core/*/index.d.ts",
+      "module": "./build/core/*/index-es.js",
+      "default": "./build/core/*/index-cjs.js"
     }
   },
   "scripts": {
@@ -31,9 +38,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "dependencies": {
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "^20.7.1",
@@ -52,11 +58,19 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-unused-imports": "^3.0.0",
     "glob": "^10.3.10",
+    "postcss": "^8.4.31",
+    "postcss-load-config": "^4.0.1",
     "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",
+    "vite-plugin-css-injected-by-js": "^3.3.0",
     "vite-plugin-dts": "^3.6.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
