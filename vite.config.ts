@@ -12,7 +12,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: '@smy/ui',
       formats: ['es', 'cjs'],
-      fileName: '[name]',
+      fileName: (fileName) => `[name]-${fileName}.js`,
     },
     rollupOptions: {
       input: path.resolve(__dirname, 'src/index.ts'),

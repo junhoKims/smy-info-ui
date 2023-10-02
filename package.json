@@ -2,14 +2,27 @@
   "name": "@smy/ui",
   "private": true,
   "version": "0.0.1",
+  "author": "kraksin12 <kraksin12@gmail.com> (https://github.com/junhoKims)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junhoKims/smy-info-ui.git"
+  },
   "type": "module",
-  "main": "./build/index.cjs",
-  "module": "./build/index.js",
+  "files": ["build"],
+  "main": "./build/index-cjs.js",
+  "module": "./build/index-es.js",
   "types": "./build/index.d.ts",
+  "typings": "./build/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/index.cjs",
-      "require": "./build/index.js"
+      "types": "./build/index.d.ts",
+      "module": "./build/index-es.js",
+      "default": "./build/index-cjs.js"
+    },
+    "./core": {
+      "types": "./build/core/index.d.ts",
+      "module": "./build/core/index-es.js",
+      "default": "./build/core/index-cjs.js"
     }
   },
   "scripts": {
@@ -18,7 +31,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -40,6 +53,8 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "glob": "^10.3.10",
     "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0"
