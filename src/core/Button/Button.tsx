@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   size?: 'large' | 'medium' | 'small';
 }
 

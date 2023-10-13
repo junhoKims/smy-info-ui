@@ -23,23 +23,30 @@
     },
     "./core": {
       "types": "./build/core/index.d.ts",
-      "module": "./build/core/index-es.js",
-      "default": "./build/core/index-cjs.js"
+      "module": "./build/core/core-es.js",
+      "default": "./build/core/core-cjs.js"
     },
     "./core/*": {
       "types": "./build/core/*/index.d.ts",
-      "module": "./build/core/*/index-es.js",
-      "default": "./build/core/*/index-cjs.js"
+      "module": "./build/core/*/*-es.js",
+      "default": "./build/core/*/*-cjs.js"
+    },
+    "./css": {
+      "module": "./build/style.css",
+      "default": "./build/style.css"
     }
   },
+  "style": "./build/style.css",
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dev": "tsc && vite build -m development",
+    "build:sb": "storybook build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "clean": "rm -rf node_modules && pnpm store prune && pnpm install",
-    "sb": "storybook dev -p 6006",
-    "build:sb": "storybook build"
+    "sb": "storybook dev -p 6006"
   },
   "dependencies": {
     "tailwindcss": "^3.3.3"
@@ -48,7 +55,6 @@
     "@storybook/addon-essentials": "^7.4.6",
     "@storybook/addon-interactions": "^7.4.6",
     "@storybook/addon-links": "^7.4.6",
-    "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/addon-styling": "^1.3.7",
     "@storybook/blocks": "^7.4.6",
     "@storybook/react": "^7.4.6",
@@ -81,7 +87,6 @@
     "storybook": "^7.4.6",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",
-    "vite-plugin-css-injected-by-js": "^3.3.0",
     "vite-plugin-dts": "^3.6.0"
   },
   "peerDependencies": {

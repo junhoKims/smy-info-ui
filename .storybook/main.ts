@@ -5,7 +5,6 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     ({
           name: "@storybook/addon-styling",
@@ -22,6 +21,6 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
-  },
+  }
 };
 export default config;
